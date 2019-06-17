@@ -50,12 +50,12 @@ public class QuerstionController {
 	}
 	
 	@GetMapping("/{id}")
-	public String getQuestionById(@PathVariable(value = "id") Long id, Model model,HttpSession session) {
+	public String getQuestionById(@PathVariable(value = "id") Long id, Model model, HttpSession session) {
 		if(HttpSessionUtils.isEmpty(session, "user"))
-			return "redirect:/users/login-form";	
+			return "redirect:/users/login-form";
 		Question question = questionService.getQuestionById(id);
-		if(HttpSessionUtils.isSameUser((User)session.getAttribute("user"), question.getWriter())) {
-			model.addAttribute("same", question.getWriter());
+		if(HttpSessionUtils.isSameUser((User) session.getAttribute("user"), question.getWriter())) {
+			model.addAttribute("same",question.getWriter());
 		}
 		model.addAttribute("question", question);
 		return "/questions/info";
