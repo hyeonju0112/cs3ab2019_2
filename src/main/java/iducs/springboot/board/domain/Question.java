@@ -27,6 +27,14 @@ public class Question {
 		this.createTime = LocalDateTime.now();
 	}
 
+	public Question(long id, String title, User writer, String contents) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.writer = writer;
+		this.contents = contents;
+		this.createTime = LocalDateTime.now();
+	}
 	public long getId() {
 		return id;
 	}
